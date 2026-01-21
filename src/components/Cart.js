@@ -18,26 +18,39 @@ function Cart({ cart, updateQuantity, removeFromCart, total, onClose, onCheckout
           <>
             <div className="space-y-4 mb-6">
               {cart.map(item => (
-                <div key={item._id} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg">
-                  <div className="text-3xl">{item.image}</div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold">{item.name}</h3>
-                    <p className="text-blue-600">₹{item.price}</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button onClick={() => updateQuantity(item._id, -1)} className="p-1 hover:bg-gray-200 rounded">
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <span className="w-8 text-center font-semibold">{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item._id, 1)} className="p-1 hover:bg-gray-200 rounded">
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                  <button onClick={() => removeFromCart(item._id)} className="p-2 hover:bg-red-100 rounded text-red-600">
-                    <Trash2 className="w-5 h-5" />
-                  </button>
-                </div>
-              ))}
+  <div key={item._id} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg">
+
+    {/* ✅ IMAGE */}
+    <img
+      src={item.image}
+      alt={item.name}
+      className="w-16 h-16 object-contain rounded"
+    />
+
+    <div className="flex-1">
+      <h3 className="font-semibold">{item.name}</h3>
+      <p className="text-blue-600">₹{item.price}</p>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <button onClick={() => updateQuantity(item._id, -1)} className="p-1 hover:bg-gray-200 rounded">
+        <Minus className="w-4 h-4" />
+      </button>
+      <span className="w-8 text-center font-semibold">{item.quantity}</span>
+      <button onClick={() => updateQuantity(item._id, 1)} className="p-1 hover:bg-gray-200 rounded">
+        <Plus className="w-4 h-4" />
+      </button>
+    </div>
+
+    <button
+      onClick={() => removeFromCart(item._id)}
+      className="p-2 hover:bg-red-100 rounded text-red-600"
+    >
+      <Trash2 className="w-5 h-5" />
+    </button>
+  </div>
+))}
+
             </div>
             <div className="border-t pt-4 mb-6">
               <div className="flex justify-between text-xl font-bold mb-4">
