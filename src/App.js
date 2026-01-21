@@ -7,7 +7,7 @@ import PaymentModal from './components/PaymentModal';
 import OrderSuccess from './components/OrderSuccess';
 import { ShoppingCart } from 'lucide-react';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_URL = process.env.REACT_APP_API_URL || 'https://payment-gateway-backend-2.onrender.com/api';
 
 function App() {
   const [products, setProducts] = useState([]);
